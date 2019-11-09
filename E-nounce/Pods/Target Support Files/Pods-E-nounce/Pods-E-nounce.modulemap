@@ -1,0 +1,6 @@
+framework module Pods_E_nounce {
+  umbrella header "Pods-E-nounce-umbrella.h"
+
+  export *
+  module * { export * }
+}

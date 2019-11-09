@@ -1,0 +1,6 @@
+framework module Pods_E_nounceTests {
+  umbrella header "Pods-E-nounceTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
