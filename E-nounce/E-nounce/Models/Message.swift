@@ -30,6 +30,35 @@ struct Message:MessageType {
         messageId = "1"
     }
     
+    init(messageId: String, dbStyledMessage: [String: Any ]){
+        self.messageId = messageId
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
+        let origDateStr = dbStyledMessage["created"] as! String
+        sentDate = formatter.date(from: origDateStr)!
+        sender = User(senderId: dbStyledMessage["senderId"] as! String, displayName: dbStyledMessage["senderName"] as! String)
+        content = dbStyledMessage["content"] as! String
+        kind = MessageKind.text(content)
+        
+    }
+    
+    func toAnyObject() -> Any{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let myString = formatter.string(from: Date())
+        let sentDate = formatter.date(from: myString)
+        formatter.dateFormat = "dd-MMM-yyy HH:mm:ss"
+        let myStringafd = formatter.string(from: sentDate!)
+        
+        var toReturn:[String:Any] = [
+            "created": myStringafd,
+            "senderId": sender.senderId,
+            "senderName": sender.displayName
+        ]
+        return toReturn
+        
+    }
+    
 }
 
 extension Message:Comparable{

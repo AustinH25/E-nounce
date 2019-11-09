@@ -15,6 +15,8 @@ import FirebaseDatabase
 class ChatViewController: MessagesViewController {
     private var messages: [Message] = []
     private let inputBar = InputBarAccessoryView()
+    private var chatRef = Database.database().reference(withPath: "chat")
+    private var user = LoginViewController.user
     
     override var inputAccessoryView: UIView? {return inputBar}
     
@@ -37,6 +39,12 @@ class ChatViewController: MessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         becomeFirstResponder()
+        chatRef.queryOrderedByPriority().observe(.childAdded, with:{snapshot in
+            let dbMessageDict = snapshot.value as? [String: Any] ?? [:]
+            let messageID = snapshot.key
+            let message = Message(messageId: messageID, dbStyledMessage: dbMessageDict)
+            self.insertNewMessage(message)
+        })
     }
     
     
@@ -50,6 +58,11 @@ class ChatViewController: MessagesViewController {
         messages.sort()
         
         messagesCollectionView.reloadData()
+    }
+    
+    private func save(_ message:Message){
+        chatRef.childByAutoId().setValue(message.toAnyObject(), andPriority: 0-Date().timeIntervalSince1970)
+        self.messagesCollectionView.scrollToBottom()
     }
 
     /*
@@ -88,5 +101,11 @@ extension ChatViewController:MessageCellDelegate{
     
 }
 extension ChatViewController:InputBarAccessoryViewDelegate{
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        let message = Message(user: LoginViewController.user, content: text)
+        save(message)
+        
+        inputBar.inputTextView.text = ""
+    }
     
 }
