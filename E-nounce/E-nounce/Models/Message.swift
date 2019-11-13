@@ -54,7 +54,9 @@ struct Message:MessageType {
             "created": myStringafd,
             "senderId": sender.senderId,
             "senderName": sender.displayName
+            
         ]
+        toReturn["content"] = content
         return toReturn
         
     }

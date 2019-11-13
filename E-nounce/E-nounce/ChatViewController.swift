@@ -18,10 +18,10 @@ class ChatViewController: MessagesViewController {
     private var chatRef = Database.database().reference(withPath: "chat")
     private var user = LoginViewController.user
     
+    public var ChatID: String?
+    
     override var inputAccessoryView: UIView? {return inputBar}
-    
-    override var canResignFirstResponder: Bool {return false}
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesCollectionView.messagesDataSource = self
@@ -31,6 +31,7 @@ class ChatViewController: MessagesViewController {
         inputBar.delegate = self
         
         let testMessage = Message(user: User(senderId: "Austin", displayName: "Austin"), content: "Hi")
+        save(testMessage)
         insertNewMessage(testMessage)
         
         // Do any additional setup after loading the view.

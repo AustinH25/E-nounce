@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0166A746237B851200B39816 /* accountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0166A745237B851200B39816 /* accountViewController.swift */; };
+		01694DBE237B8834006F94DF /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694DBD237B8834006F94DF /* ChatListTableViewController.swift */; };
+		01694DC0237B8964006F94DF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694DBF237B8964006F94DF /* Chat.swift */; };
 		01950730235A85A1007FDA08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0195072F235A85A1007FDA08 /* GoogleService-Info.plist */; };
 		01950734235A8943007FDA08 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01950733235A8943007FDA08 /* MainMenuViewController.swift */; };
 		01950738235A9BDA007FDA08 /* HomePageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0166A745237B851200B39816 /* accountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountViewController.swift; sourceTree = "<group>"; };
+		01694DBD237B8834006F94DF /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
+		01694DBF237B8964006F94DF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		0195072F235A85A1007FDA08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01950733235A8943007FDA08 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTwoViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 				01950733235A8943007FDA08 /* MainMenuViewController.swift */,
 				01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */,
 				01A5F2F0236D01430076C039 /* ChatViewController.swift */,
+				0166A745237B851200B39816 /* accountViewController.swift */,
+				01694DBD237B8834006F94DF /* ChatListTableViewController.swift */,
 			);
 			path = "E-nounce";
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 			children = (
 				D9EB8BD123515D57006BEE4E /* User.swift */,
 				01A5F2F2236D08160076C039 /* Message.swift */,
+				01694DBF237B8964006F94DF /* Chat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,10 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01694DC0237B8964006F94DF /* Chat.swift in Sources */,
 				2B00639E234810CD004097E7 /* ViewController.swift in Sources */,
+				01694DBE237B8834006F94DF /* ChatListTableViewController.swift in Sources */,
 				01950738235A9BDA007FDA08 /* HomePageTwoViewController.swift in Sources */,
 				2B00639A234810CD004097E7 /* AppDelegate.swift in Sources */,
 				D9EB8BD223515D57006BEE4E /* User.swift in Sources */,
+				0166A746237B851200B39816 /* accountViewController.swift in Sources */,
 				2B00639C234810CD004097E7 /* SceneDelegate.swift in Sources */,
 				01950734235A8943007FDA08 /* MainMenuViewController.swift in Sources */,
 				D9EB8BCF23515B08006BEE4E /* LoginViewController.swift in Sources */,
