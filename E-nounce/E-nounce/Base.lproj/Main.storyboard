@@ -444,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tax-hO-ESQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496" y="1254"/>
+            <point key="canvasLocation" x="1405.7971014492755" y="1253.5714285714284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VKD-yM-vuc">
@@ -464,35 +464,21 @@
         <!--Chat List Table View Controller-->
         <scene sceneID="6EA-Y4-0qK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VIT-PF-4bT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="homeScreen3" id="5GS-IP-Z0C" customClass="ChatListTableViewController" customModule="E_nounce" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="5GS-IP-Z0C" customClass="ChatListTableViewController" customModule="E_nounce" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ijp-gb-SX8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Zls-47-pVR">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem id="67j-yq-6Gl">
-                                    <barButtonItem key="rightBarButtonItem" title="Add" id="u3d-OZ-xwx">
-                                        <connections>
-                                            <action selector="addButtonDidTouch:" destination="5GS-IP-Z0C" id="vys-2p-gKe"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="jBB-mY-4Ad">
-                                <rect key="frame" x="0.0" y="72" width="414" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jBB-mY-4Ad" id="w9A-bI-El3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ugg-rO-3ny" kind="presentation" identifier="chatSegue" id="gmR-ma-dPF"/>
+                                    <segue destination="ugg-rO-3ny" kind="show" identifier="chatSegue" id="gmR-ma-dPF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -501,9 +487,35 @@
                             <outlet property="delegate" destination="5GS-IP-Z0C" id="qei-zs-Ai7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ctL-tS-La0">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="u3d-OZ-xwx">
+                            <connections>
+                                <action selector="addButtonDidTouch:" destination="5GS-IP-Z0C" id="vys-2p-gKe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VIT-PF-4bT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367" y="1254"/>
+            <point key="canvasLocation" x="542.02898550724638" y="1253.5714285714284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gtJ-fe-Wvq">
+            <objects>
+                <navigationController storyboardIdentifier="homeScreen3" automaticallyAdjustsScrollViewInsets="NO" id="Kui-Rj-D4R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="czo-lI-1xz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5GS-IP-Z0C" kind="relationship" relationship="rootViewController" id="IPB-zq-HLa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ah9-SP-Jh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-368.11594202898556" y="1253.5714285714284"/>
         </scene>
     </scenes>
     <resources>
