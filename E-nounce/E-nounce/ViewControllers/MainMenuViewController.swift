@@ -8,8 +8,15 @@
 
 import UIKit
 import Firebase
+import CoreLocation
+import MapKit
 
-class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, CLLocationManagerDelegate {
+    public static var instanceRef:MainMenuViewController? = nil
+    var LocationManager:CLLocationManager=CLLocationManager()
+    var currentLocation:CLLocation?
+
+    
     var user = User(senderId: "", displayName: "")
     let usersRef = Database.database().reference(withPath: "online")
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -32,6 +39,13 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        LocationManager.delegate=self
+        LocationManager.desiredAccuracy=kCLLocationAccuracyBest
+        LocationManager.requestAlwaysAuthorization()
+        LocationManager.requestWhenInUseAuthorization()
+        LocationManager.startUpdatingLocation()
+        MainMenuViewController.instanceRef = self
+        
         self.delegate = self
         self.dataSource = self
         
@@ -69,6 +83,35 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
         })
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status{
+        case .restricted,.denied,.notDetermined:
+            //report an error and do something
+            print("error")
+        default:
+            //location is allowed start monitoring
+            manager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        manager.stopUpdatingLocation()
+        //do something with the error
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let locationObj=locations.last{
+            currentLocation = locationObj
+            print(locationObj.coordinate)
+        }
+    }
+    
+    static func openLocationFromCoords(_ location: CLLocation){
+        let coordinate = location.coordinate
+        let placemark = MKPlacemark(coordinate: coordinate)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.openInMaps()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -78,5 +121,5 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+

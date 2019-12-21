@@ -20,4 +20,14 @@ struct User:SenderType{
         self.email = displayName
         
     }
+    
+    func toAnyObject() -> Any{
+        let toReturn:[String:Any] = [
+            "senderId" : senderId,
+            "displayName" : displayName,
+            "email" : email,
+        ]
+        
+        return toReturn
+    }
 }

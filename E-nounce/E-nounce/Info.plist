@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationUsageDescription</key>
+	<string>The app will need your location for the map; click on &quot;only when the app opens&quot;</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>The app will need your location for the map; click on &quot;only when the app opens&quot;</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

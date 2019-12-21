@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         let user = Auth.auth().currentUser!
         do{
             try Auth.auth().signOut()
-            self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "mainMenuLogoutSegue", sender: nil)
         } catch(let error){
             print("Sign out failed: \(error)")
         }

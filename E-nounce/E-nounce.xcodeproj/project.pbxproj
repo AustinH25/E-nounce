@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015C115D237F946400917B66 /* UICollectionView_Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C115C237F946400917B66 /* UICollectionView_Additions.swift */; };
+		015C11602384CA5900917B66 /* CustomInputBarAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C115F2384CA5900917B66 /* CustomInputBarAccessoryViewController.swift */; };
+		015C11622384DA0D00917B66 /* CoordinateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015C11612384DA0D00917B66 /* CoordinateItem.swift */; };
 		0166A746237B851200B39816 /* accountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0166A745237B851200B39816 /* accountViewController.swift */; };
 		01694DBE237B8834006F94DF /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694DBD237B8834006F94DF /* ChatListTableViewController.swift */; };
 		01694DC0237B8964006F94DF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01694DBF237B8964006F94DF /* Chat.swift */; };
@@ -15,6 +18,7 @@
 		01950738235A9BDA007FDA08 /* HomePageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */; };
 		01A5F2F1236D01430076C039 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5F2F0236D01430076C039 /* ChatViewController.swift */; };
 		01A5F2F3236D08160076C039 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5F2F2236D08160076C039 /* Message.swift */; };
+		01F7B44F2388BB43003F1CFC /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F7B44E2388BB43003F1CFC /* SOSViewController.swift */; };
 		2B00639A234810CD004097E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B006399234810CD004097E7 /* AppDelegate.swift */; };
 		2B00639C234810CD004097E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00639B234810CD004097E7 /* SceneDelegate.swift */; };
 		2B00639E234810CD004097E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00639D234810CD004097E7 /* ViewController.swift */; };
@@ -40,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		015C115C237F946400917B66 /* UICollectionView_Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView_Additions.swift; sourceTree = "<group>"; };
+		015C115F2384CA5900917B66 /* CustomInputBarAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputBarAccessoryViewController.swift; sourceTree = "<group>"; };
+		015C11612384DA0D00917B66 /* CoordinateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateItem.swift; sourceTree = "<group>"; };
 		0166A745237B851200B39816 /* accountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountViewController.swift; sourceTree = "<group>"; };
 		01694DBD237B8834006F94DF /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		01694DBF237B8964006F94DF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTwoViewController.swift; sourceTree = "<group>"; };
 		01A5F2F0236D01430076C039 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		01A5F2F2236D08160076C039 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		01F7B44E2388BB43003F1CFC /* SOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSViewController.swift; sourceTree = "<group>"; };
 		1D89CB30370565EE7A63A107 /* Pods-E-nounce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-nounce.release.xcconfig"; path = "Target Support Files/Pods-E-nounce/Pods-E-nounce.release.xcconfig"; sourceTree = "<group>"; };
 		2B006396234810CD004097E7 /* E-nounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-nounce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B006399234810CD004097E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +99,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015C115B237F936200917B66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				015C115C237F946400917B66 /* UICollectionView_Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		015C115E2384C90B00917B66 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B00639D234810CD004097E7 /* ViewController.swift */,
+				D9EB8BCE23515B08006BEE4E /* LoginViewController.swift */,
+				01950733235A8943007FDA08 /* MainMenuViewController.swift */,
+				01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */,
+				01A5F2F0236D01430076C039 /* ChatViewController.swift */,
+				0166A745237B851200B39816 /* accountViewController.swift */,
+				01694DBD237B8834006F94DF /* ChatListTableViewController.swift */,
+				2B0063BB234823C1004097E7 /* LocationViewController.swift */,
+				015C115F2384CA5900917B66 /* CustomInputBarAccessoryViewController.swift */,
+				01F7B44E2388BB43003F1CFC /* SOSViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2B00638D234810CD004097E7 = {
 			isa = PBXGroup;
 			children = (
@@ -114,23 +147,17 @@
 		2B006398234810CD004097E7 /* E-nounce */ = {
 			isa = PBXGroup;
 			children = (
+				015C115E2384C90B00917B66 /* ViewControllers */,
+				015C115B237F936200917B66 /* Extensions */,
 				D9EB8BD32351631A006BEE4E /* E-nounce.entitlements */,
 				D9EB8BD023515D2D006BEE4E /* Models */,
 				2B006399234810CD004097E7 /* AppDelegate.swift */,
 				2B00639B234810CD004097E7 /* SceneDelegate.swift */,
-				2B00639D234810CD004097E7 /* ViewController.swift */,
 				2B00639F234810CD004097E7 /* Main.storyboard */,
-				2B0063BB234823C1004097E7 /* LocationViewController.swift */,
 				2B0063A2234810CF004097E7 /* Assets.xcassets */,
 				2B0063A4234810CF004097E7 /* LaunchScreen.storyboard */,
 				2B0063A7234810CF004097E7 /* Info.plist */,
 				0195072F235A85A1007FDA08 /* GoogleService-Info.plist */,
-				D9EB8BCE23515B08006BEE4E /* LoginViewController.swift */,
-				01950733235A8943007FDA08 /* MainMenuViewController.swift */,
-				01950737235A9BDA007FDA08 /* HomePageTwoViewController.swift */,
-				01A5F2F0236D01430076C039 /* ChatViewController.swift */,
-				0166A745237B851200B39816 /* accountViewController.swift */,
-				01694DBD237B8834006F94DF /* ChatListTableViewController.swift */,
 			);
 			path = "E-nounce";
 			sourceTree = "<group>";
@@ -159,6 +186,7 @@
 				D9EB8BD123515D57006BEE4E /* User.swift */,
 				01A5F2F2236D08160076C039 /* Message.swift */,
 				01694DBF237B8964006F94DF /* Chat.swift */,
+				015C11612384DA0D00917B66 /* CoordinateItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,12 +377,16 @@
 				01950738235A9BDA007FDA08 /* HomePageTwoViewController.swift in Sources */,
 				2B00639A234810CD004097E7 /* AppDelegate.swift in Sources */,
 				D9EB8BD223515D57006BEE4E /* User.swift in Sources */,
+				015C11622384DA0D00917B66 /* CoordinateItem.swift in Sources */,
 				0166A746237B851200B39816 /* accountViewController.swift in Sources */,
 				2B00639C234810CD004097E7 /* SceneDelegate.swift in Sources */,
 				01950734235A8943007FDA08 /* MainMenuViewController.swift in Sources */,
 				D9EB8BCF23515B08006BEE4E /* LoginViewController.swift in Sources */,
 				01A5F2F3236D08160076C039 /* Message.swift in Sources */,
+				01F7B44F2388BB43003F1CFC /* SOSViewController.swift in Sources */,
 				01A5F2F1236D01430076C039 /* ChatViewController.swift in Sources */,
+				015C115D237F946400917B66 /* UICollectionView_Additions.swift in Sources */,
+				015C11602384CA5900917B66 /* CustomInputBarAccessoryViewController.swift in Sources */,
 				2B0063BC234823C1004097E7 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

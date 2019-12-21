@@ -12,14 +12,16 @@ class accountViewController: UIViewController {
 
     
     @IBOutlet weak var UserIDLabel: UILabel!
+    @IBOutlet weak var UsernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UserIDLabel.text = LoginViewController.user.email
-
+        UsernameLabel.text = LoginViewController.user.displayName
         // Do any additional setup after loading the view.
     }
+    
     
 
     /*

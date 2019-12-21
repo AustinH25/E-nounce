@@ -11,23 +11,34 @@ import MessageKit
 import CoreLocation
 
 struct Message:MessageType {
-    var sender: SenderType
     
-    var messageId: String
-    
-    var sentDate: Date
-    
-    var downloadURL: URL? = nil
-    
+    let chatId: String
+    let messageId: String
     var kind: MessageKind
     let content: String
+    var sentDate: Date
+    var sender: SenderType
     
-    init(user: User, content: String) {
+    var downloadURL: URL? = nil
+    var location:CoordinateItem? = nil
+    
+    init(user: User, content: String, chatId: String) {
         sender = User(senderId: user.senderId, displayName: user.displayName)
         self.content = content
         sentDate = Date()
         kind = MessageKind.text(content)
         messageId = "1"
+        self.chatId = chatId
+    }
+    
+    init(location: CLLocation, user: User, chatId: String){
+        self.location = CoordinateItem(location: location)
+        sender = User(senderId: user.senderId, displayName: user.displayName)
+        self.content = ""
+        sentDate = Date()
+        kind = MessageKind.location(self.location!)
+        messageId = "1"
+        self.chatId = chatId
     }
     
     init(messageId: String, dbStyledMessage: [String: Any ]){
@@ -36,10 +47,28 @@ struct Message:MessageType {
         formatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
         let origDateStr = dbStyledMessage["created"] as! String
         sentDate = formatter.date(from: origDateStr)!
+        chatId = dbStyledMessage["chatId"] as! String
         sender = User(senderId: dbStyledMessage["senderId"] as! String, displayName: dbStyledMessage["senderName"] as! String)
-        content = dbStyledMessage["content"] as! String
-        kind = MessageKind.text(content)
-        
+        guard let messageKind = dbStyledMessage["messageKind"] else{
+            content = dbStyledMessage["content"] as! String
+            kind = MessageKind.text(content)
+            return
+        }
+        switch messageKind as! String {
+        case "text":
+            content = dbStyledMessage["content"] as! String
+            kind = MessageKind.text(content)
+        case "location":
+            content = ""
+            let lat  = dbStyledMessage["location_lat"] as! Double
+            let lon = dbStyledMessage["location_lon"] as! Double
+            let locationItem = CLLocation(latitude: lat, longitude: lon)
+            location = CoordinateItem(location: locationItem)
+            kind = MessageKind.location(location!)
+        default:
+            content = dbStyledMessage["content"] as! String
+            kind = MessageKind.text(content)
+        }
     }
     
     func toAnyObject() -> Any{
@@ -53,10 +82,22 @@ struct Message:MessageType {
         var toReturn:[String:Any] = [
             "created": myStringafd,
             "senderId": sender.senderId,
-            "senderName": sender.displayName
+            "senderName": sender.displayName,
+            "chatId": chatId
             
         ]
-        toReturn["content"] = content
+        
+        switch kind{
+        case .text:
+            toReturn["messageKind"] = "text"
+            toReturn["content"] = content
+        case .location:
+            toReturn["messageKind"] = "location"
+            toReturn["location_lat"] = location?.location.coordinate.latitude
+            toReturn["location_lon"] = location?.location.coordinate.longitude
+        default:
+            toReturn["content"] = content
+        }
         return toReturn
         
     }

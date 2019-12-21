@@ -58,7 +58,7 @@ class ChatListTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "chatSeque"{
+        if segue.identifier == "chatSegue"{
             let chatViewController = segue.destination as! ChatViewController
             let myIndexPath = self.tableView.indexPathForSelectedRow!
             let chat = Chats [myIndexPath.row]
