@@ -405,7 +405,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0J-6b-rw7">
-                                <rect key="frame" x="48.000000000000014" y="173" width="190.33333333333337" height="24"/>
+                                <rect key="frame" x="50.000000000000014" y="173" width="190.33333333333337" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol7-6G-1Tm">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="24"/>
@@ -422,7 +422,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Kpc-2b-FFv">
-                                <rect key="frame" x="48.000000000000007" y="205" width="106.66666666666669" height="75.666666666666686"/>
+                                <rect key="frame" x="50.000000000000007" y="205" width="106.66666666666669" height="75.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms5-yj-m5p">
                                         <rect key="frame" x="0.0" y="0.0" width="52.666666666666664" height="75.666666666666671"/>
@@ -454,11 +454,10 @@
                             <constraint firstItem="zkb-Dt-4bv" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cw9-8e-WcI" secondAttribute="trailing" id="Xcc-rJ-9rs"/>
                             <constraint firstItem="cw9-8e-WcI" firstAttribute="centerX" secondItem="reV-te-GS0" secondAttribute="centerX" constant="11.5" id="aSw-EZ-78T"/>
                             <constraint firstItem="Kpc-2b-FFv" firstAttribute="top" secondItem="cw9-8e-WcI" secondAttribute="bottom" constant="133.33333333333331" id="fuP-xi-ZBc"/>
-                            <constraint firstItem="Kpc-2b-FFv" firstAttribute="leading" secondItem="zkb-Dt-4bv" secondAttribute="leading" constant="48" id="kkx-OA-Ue3"/>
-                            <constraint firstItem="Kpc-2b-FFv" firstAttribute="leading" secondItem="zkb-Dt-4bv" secondAttribute="leading" constant="48" id="l2g-8R-P8r"/>
+                            <constraint firstItem="Kpc-2b-FFv" firstAttribute="leading" secondItem="zkb-Dt-4bv" secondAttribute="leading" constant="50" id="kkx-OA-Ue3"/>
                             <constraint firstItem="HzD-2M-iOz" firstAttribute="top" secondItem="reV-te-GS0" secondAttribute="top" constant="-23" id="lig-Ju-IeF"/>
                             <constraint firstItem="cw9-8e-WcI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zkb-Dt-4bv" secondAttribute="leading" id="qdA-sN-jMA"/>
-                            <constraint firstItem="H0J-6b-rw7" firstAttribute="leading" secondItem="zkb-Dt-4bv" secondAttribute="leading" constant="48" id="rLD-9R-vJC"/>
+                            <constraint firstItem="H0J-6b-rw7" firstAttribute="leading" secondItem="zkb-Dt-4bv" secondAttribute="leading" constant="50" id="rLD-9R-vJC"/>
                             <constraint firstItem="Kpc-2b-FFv" firstAttribute="top" secondItem="H0J-6b-rw7" secondAttribute="bottom" constant="8" id="yJt-CZ-czE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zkb-Dt-4bv"/>
@@ -653,7 +652,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ctL-tS-La0">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="u3d-OZ-xwx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="u3d-OZ-xwx">
                             <connections>
                                 <action selector="addButtonDidTouch:" destination="5GS-IP-Z0C" id="vys-2p-gKe"/>
                             </connections>

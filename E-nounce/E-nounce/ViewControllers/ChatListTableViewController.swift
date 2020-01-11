@@ -152,8 +152,14 @@ class ChatListTableViewController: UITableViewController {
             guard let textField = alert.textFields?.first, let chatName = textField.text else {return}
             
             let newChat = Chat(ChatID: "123", ChatName: chatName)
+            //Add the new chat to the database
+            let newChatRef = self.chatListRef.childByAutoId()
+            newChatRef.setValue(newChat.toAnyObject(), andPriority: 0 + Date().timeIntervalSince1970)
             
-            self.chatListRef.childByAutoId().setValue(newChat.toAnyObject(), andPriority: 0 + Date().timeIntervalSince1970)
+            
+            // Add the id of the new chat to the user's chat
+            let userChatListRef = Database.database().reference(withPath: "users/\(LoginViewController.user.displayName)/chats")
+            userChatListRef.setValue(newChatRef.key!)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

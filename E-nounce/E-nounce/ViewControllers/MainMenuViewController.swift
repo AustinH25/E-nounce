@@ -64,6 +64,7 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         Auth.auth().addStateDidChangeListener{auth, user in
             guard let user = user else {return}
             // guard. set variable to something(an if statement for variable)
@@ -71,6 +72,8 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
             let currentUserRef = self.usersRef.child(user.uid)
             currentUserRef.setValue(user.email)
             currentUserRef.onDisconnectRemoveValue()
+            
+            MainMenuViewController.instanceRef = self
         }
         
         let connectedRef = Database.database().reference(withPath: ".info/connected")
@@ -81,6 +84,8 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
                 currentUsersRef.onDisconnectRemoveValue()
             }
         })
+        
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

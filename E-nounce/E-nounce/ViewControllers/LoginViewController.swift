@@ -130,7 +130,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 LoginViewController.user.displayName = username
                 LoginViewController.user.senderId = (Auth.auth().currentUser?.uid)!
                 self.performSegue(withIdentifier: self.transitionID, sender: nil)
-                self.userListRef!.child("usernames").setValue(LoginViewController.user.toAnyObject())
+                self.userListRef!.child(username).setValue(LoginViewController.user.toAnyObject())
                 Database.database().reference(withPath: "usernames").child((Auth.auth().currentUser?.uid)!).setValue(username)
             }
             else {
