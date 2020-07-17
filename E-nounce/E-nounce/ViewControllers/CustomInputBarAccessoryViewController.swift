@@ -28,6 +28,7 @@ class customInputBarAccessoryViewController: InputBarAccessoryView {
     func configure(){
         locationButton.onKeyboardEditingBegins({item in
             item.inputBarAccessoryView?.setLeftStackViewWidthConstant(to: 0, animated: true)
+            item.inputBarAccessoryView?.inputTextView.textColor = UIColor.black;
         })
         
         locationButton.onKeyboardEditingEnds({item in
