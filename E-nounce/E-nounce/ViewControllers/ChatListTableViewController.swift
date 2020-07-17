@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+
 class ChatListTableViewController: UITableViewController {
     
     //MARK: Properties
     var Chats: [Chat] = []
     var user = LoginViewController.user
     let chatListRef = Database.database().reference(withPath: "Chats")
+    var ref = Database.database().reference().childByAutoId()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,45 +108,6 @@ class ChatListTableViewController: UITableViewController {
         return false
     }
     
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     @IBAction func addButtonDidTouch(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "New Chat", message: "Name the new chat", preferredStyle: .alert)
         
@@ -155,11 +118,16 @@ class ChatListTableViewController: UITableViewController {
             //Add the new chat to the database
             let newChatRef = self.chatListRef.childByAutoId()
             newChatRef.setValue(newChat.toAnyObject(), andPriority: 0 + Date().timeIntervalSince1970)
+           
             
+            self.ref.child("users")
             
+           
             // Add the id of the new chat to the user's chat
             let userChatListRef = Database.database().reference(withPath: "users/\(LoginViewController.user.displayName)/chats")
             userChatListRef.setValue(newChatRef.key!)
+        
+            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -173,3 +141,41 @@ class ChatListTableViewController: UITableViewController {
     }
     
 }
+
+/*
+// Override to support editing the table view.
+override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+        // Delete the row from the data source
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    } else if editingStyle == .insert {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    // Return false if you do not want the item to be re-orderable.
+    return true
+}
+*/
+
+/*
+// MARK: - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get the new view controller using segue.destination.
+    // Pass the selected object to the new view controller.
+}
+*/
+

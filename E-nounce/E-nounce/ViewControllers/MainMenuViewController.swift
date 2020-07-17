@@ -44,6 +44,7 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
         LocationManager.requestAlwaysAuthorization()
         LocationManager.requestWhenInUseAuthorization()
         LocationManager.startUpdatingLocation()
+        
         MainMenuViewController.instanceRef = self
         
         self.delegate = self
@@ -82,12 +83,18 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
                 let currentUsersRef = self.usersRef.child(self.user.senderId)
                 currentUsersRef.setValue(self.user.email)
                 currentUsersRef.onDisconnectRemoveValue()
+                
+        if CLLocationManager.locationServicesEnabled() {
+           print("permissions allowed")
+        } else {
+           print("permissions not allowed")
+        }
             }
         })
         
         
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status{
         case .restricted,.denied,.notDetermined:
@@ -96,17 +103,25 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
         default:
             //location is allowed start monitoring
             manager.startUpdatingLocation()
+        
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         manager.stopUpdatingLocation()
+        print("Test1")
+        print(error)
         //do something with the error
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let locationObj=locations.last{
-            currentLocation = locationObj
-            print(locationObj.coordinate)
+        if let location=locations.first{
+            print(location.coordinate)
+            
+            
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        print("Test2")
+        currentLocation = manager.location
         }
     }
     
@@ -115,6 +130,7 @@ class MainMenuViewController: UIPageViewController, UIPageViewControllerDataSour
         let placemark = MKPlacemark(coordinate: coordinate)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.openInMaps()
+        print("Test3")
     }
     
     /*

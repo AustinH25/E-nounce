@@ -39,7 +39,7 @@ class customInputBarAccessoryViewController: InputBarAccessoryView {
         
         locationButton.setSize(CGSize(width: 36, height: 36), animated: false)
         locationButton.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
-        locationButton.image = UIImage(named: "AppIcon")
+        locationButton.image = UIImage(named: "E-nounce_Icon")
         setStackViewItems([locationButton], forStack: .left, animated: false)
         locationButton.inputBarAccessoryView?.setLeftStackViewWidthConstant(to: 36, animated: false)
     }

@@ -2,12 +2,13 @@
 //  SOSViewController.swift
 //  E-nounce
 //
-//  Created by austin huang on 11/22/19.
-//  Copyright © 2019 Yu WenLiao. All rights reserved.
+//  Created by austin huang on 5/27/20.
+//  Copyright © 2020 Yu WenLiao. All rights reserved.
 //
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class SOSViewController: UIViewController {
     @IBOutlet public weak var userLabel: UILabel!

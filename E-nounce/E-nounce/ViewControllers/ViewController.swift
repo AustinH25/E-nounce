@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func LogoutButtonPress(_ sender: UIButton) {
-        let user = Auth.auth().currentUser!
+        _ = Auth.auth().currentUser!
         do{
             try Auth.auth().signOut()
             //self.dismiss(animated: true, completion: nil)
@@ -28,8 +28,6 @@ class ViewController: UIViewController {
         }
     }
 }
-    
-
 
 @IBDesignable extension UIButton {
 

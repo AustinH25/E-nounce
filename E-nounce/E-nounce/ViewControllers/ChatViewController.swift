@@ -15,7 +15,7 @@ import FirebaseDatabase
 class ChatViewController: MessagesViewController {
     private var messages: [Message] = []
     private var chatRef = Database.database().reference(withPath: "Chat")
-    private var chatParentRef = Database.database().reference(withPath:"Chats/") //
+    private var chatParentRef = Database.database().reference(withPath:"Chats/")
     private var lastMessageRef = Database.database().reference(withPath: "Chats/")
     
     private var user = LoginViewController.user
@@ -69,7 +69,7 @@ class ChatViewController: MessagesViewController {
         
         if shouldScrollToBottom{
             DispatchQueue.main.async {
-                self.messagesCollectionView.scrollToBottom(animated: true)
+                self.messagesCollectionView.scrollToBottom(animated: false)
             }
         }
     }
@@ -136,6 +136,10 @@ extension ChatViewController: MessagesDataSource{
         let messageInfo = messages[indexPath.section]
         return NSAttributedString(string: messageInfo.sender.displayName, attributes: [NSAttributedString.Key.font:UIFont.preferredFont(forTextStyle: .caption1)])
     }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        avatarView.image = UIImage(named: "E-nounce_Icon")
+    }
 }
 
 extension ChatViewController:MessagesDisplayDelegate{
@@ -182,6 +186,7 @@ extension ChatViewController:MessageCellDelegate{
 extension ChatViewController:InputBarAccessoryViewDelegate{
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         let message = Message(user: LoginViewController.user, content: text, chatId: ChatID!)
+        print("loginViewController.user:\(LoginViewController.user)")
         save(message)
         
         inputBar.inputTextView.text = ""
@@ -191,10 +196,10 @@ extension ChatViewController:InputBarAccessoryViewDelegate{
 
 extension ChatViewController:customInputAccessoryViewDelegate{
     func locationButtonPressed() {
-        guard let currentLocation = MainMenuViewController.instanceRef?.currentLocation else {
+        guard let currentlocation = MainMenuViewController.instanceRef?.currentLocation else {
             return
         }
-        let message = Message(location: currentLocation, user: user, chatId: ChatID!)
+        let message = Message(location: currentlocation, user: user, chatId: ChatID!)
         save(message)
     }
 }

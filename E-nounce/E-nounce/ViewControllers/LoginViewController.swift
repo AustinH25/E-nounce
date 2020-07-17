@@ -170,8 +170,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             else {
                 LoginViewController.user.email = username
                 LoginViewController.user.displayName = (Auth.auth().currentUser?.uid)!
-                LoginViewController.user.senderId = email
-
+                LoginViewController.user.senderId = (Auth.auth().currentUser?.uid)!
+                
                 self.performSegue(withIdentifier: self.transitionID, sender: nil)
 
             }

@@ -37,8 +37,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         //do something with the error
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let locationObj=locations.last{
-            print(locationObj.coordinate)
+        if locations.last != nil{
+        //print(locationObj.coordinate)
         }
     }
 
