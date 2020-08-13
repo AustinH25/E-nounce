@@ -10,16 +10,31 @@ import UIKit
 
 class SupportViewController: UIViewController {
 
-    
+    let backgroundImageView = UIImageView()
+
     @IBOutlet var languageButton: [UIButton]!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground_system()
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func URL_Link(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: "https://austinbuzz1014.wixsite.com/website")! as URL, options: [:], completionHandler: nil)
+    }
+    func setBackground_system() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backgroundImageView.image = UIImage(named: "background")
+        view.sendSubviewToBack(backgroundImageView)
+    }
 //    @IBAction func handleSelection(_ sender: UIButton) {
 //        languageButton.forEach { (button) in
 //            UIView.animate(withDuration: 0.3, animations: {

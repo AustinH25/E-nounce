@@ -1,28 +1,21 @@
 //
-//  accountViewController.swift
+//  generalViewController.swift
 //  E-nounce
 //
-//  Created by austin huang on 11/12/19.
-//  Copyright © 2019 Yu WenLiao. All rights reserved.
+//  Created by austin huang on 7/18/20.
+//  Copyright © 2020 Yu WenLiao. All rights reserved.
 //
 
 import UIKit
 
-class accountViewController: UIViewController {
-
+class generalViewController: UIViewController {
     let backgroundImageView = UIImageView()
-    @IBOutlet weak var UserIDLabel: UILabel!
-    @IBOutlet weak var UsernameLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground_account()
-        UserIDLabel.text = LoginViewController.user.email
-        UsernameLabel.text = LoginViewController.user.displayName
+        setBackground_general()
         // Do any additional setup after loading the view.
     }
-    
-    func setBackground_account() {
+    func setBackground_general() {
         view.addSubview(backgroundImageView)
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -32,8 +25,6 @@ class accountViewController: UIViewController {
         backgroundImageView.image = UIImage(named: "background")
         view.sendSubviewToBack(backgroundImageView)
     }
-    
-    
 
     /*
     // MARK: - Navigation
